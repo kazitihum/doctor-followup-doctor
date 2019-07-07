@@ -1,53 +1,51 @@
-<ion-header >
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/tabs"></ion-back-button>
-        </ion-buttons>
-      <ion-title>Replay</ion-title>
-    </ion-toolbar>
-    </ion-header>
-    
-    <ion-content  padding style="height: 100%">
-    
-  
-  
-      <div justify-content-center align-items-center style="height: 100%">
-          <form #form="ngForm" (ngSubmit)="createFollowup(form)" >
-              <ion-grid>
+<ion-toolbar mode="ios" class="main-header">
+	<ion-buttons slot="start">
+		<!-- <ion-button fill="clear" color="dark">
+            <i class="remixicon-menu-line ri-2x"></i>
+        </ion-button> -->
+		<ion-back-button defaultHref="/tabs"></ion-back-button>
+	</ion-buttons>
+	<div text-center>
+		<ion-title>
+			Reply
+		</ion-title>
+	</div>
+	<ion-buttons slot="end">
+		<!-- <ion-button fill="clear" color="dark">
+            <i class="remixicon-notification-line ri-2x"></i>
+        </ion-button> -->
+		<ion-button fill="clear" color="dark" (click)="logout()">
+			<i class="remixicon-login-circle-line ri-2x"></i>
+        </ion-button>
+    </ion-buttons>
+</ion-toolbar>
+
+<ion-content padding>
+
+    <div justify-content-center align-items-center>
+        <form #form="ngForm" (ngSubmit)="createFollowup(form)" >
+            <ion-grid>
                 <ion-row color="primary" justify-content-center>
-                  <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-                    <div text-center>
-                      <h3>Follow Up Replay</h3>
-                    </div>
-                    <div padding>
-                      <ion-item>
-                          <ion-textarea name="suggestions" rows="3" type="text" placeholder="Suggestions" ngModel required></ion-textarea>
+                    <ion-col align-self-center size-md="6" size-lg="6" size-xs="12">
+                        <ion-item class="df-input">
+                            <ion-textarea name="suggestions" rows="3" type="text" placeholder="Suggestions" ngModel required></ion-textarea>
                         </ion-item>
-                      <ion-item>
-                        <ion-textarea name="description" rows="5" type="text" placeholder="Any Other Things" ngModel required></ion-textarea>
-                      </ion-item><br>
-                      <div padding>
+
+                        <ion-item class="df-input">
+                            <ion-textarea name="description" rows="5" type="text" placeholder="Any Other Things" ngModel required></ion-textarea>
+                        </ion-item>
+
                         <ion-button size="small" expand="block" (click)="chooser()">Choose File</ion-button>
-                      </div>
-                      <br>
-                      <div >
-  
+
                         <ion-item *ngFor="let file of fileBuff;let i = index">
-                          <ion-label *ngIf="file">{{file.filename}}</ion-label>
+                            <ion-label *ngIf="file">{{file.filename}}</ion-label>
                         </ion-item>
-  
-                      </div>
-                      <br><br>
-                     
-                    </div>
-                    <div padding>
-                      <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Submit</ion-button>
-                    </div>
-                  </ion-col>
+
+                        <ion-button class="ion-margin-top" size="large" type="submit" [disabled]="form.invalid" expand="block">Submit</ion-button>
+                    </ion-col>
                 </ion-row>
-              </ion-grid>
-            </form>
-      </div>
-     
-    </ion-content>
-    
+            </ion-grid>
+        </form>
+    </div>
+
+</ion-content>

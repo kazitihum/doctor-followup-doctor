@@ -1,61 +1,72 @@
-<ion-header>
-    <ion-toolbar color="primary">
-        <ion-buttons slot="start">
-          <ion-back-button defaultHref="/tabs"></ion-back-button>
-          </ion-buttons>
-        <ion-title>Payment</ion-title>
-      </ion-toolbar>
-</ion-header>
+<ion-toolbar mode="ios" class="main-header">
+	<ion-buttons slot="start">
+		<!-- <ion-button fill="clear" color="dark">
+            <i class="remixicon-menu-line ri-2x"></i>
+        </ion-button> -->
+		<ion-back-button defaultHref="/tabs"></ion-back-button>
+	</ion-buttons>
+	<div text-center>
+		<ion-title>
+			Payment
+		</ion-title>
+	</div>
+	<ion-buttons slot="end">
+		<!-- <ion-button fill="clear" color="dark">
+            <i class="remixicon-notification-line ri-2x"></i>
+        </ion-button> -->
+		<ion-button fill="clear" color="dark" (click)="logout()">
+			<i class="remixicon-login-circle-line ri-2x"></i>
+        </ion-button>
+    </ion-buttons>
+</ion-toolbar>
 
-<ion-content>
+<ion-content padding>
 
-  <br><br>
-  <div text-center>
-    <span>Your Payment History</span>
-  </div>
-
-    <ion-list>
-        <ion-card  >
-          <ion-item lines="none">
-              <span slot="start">ID: XY563559</span>
-              <span slot="end">Date: 22-12-2018</span>
-          </ion-item>
-          <ion-item lines="none">
-              <ion-label slot="start">Amount: 500 Tk</ion-label>
-              <span slot="end">BAKSH</span>
-          </ion-item>
-        </ion-card>
-        <ion-card  >
-          <ion-item lines="none">
-              <span slot="start">ID: XY563559</span>
-              <span slot="end">Date: 22-12-2018</span>
-          </ion-item>
-          <ion-item lines="none">
-              <ion-label slot="start">Amount: 500 Tk</ion-label>
-              <span slot="end">BANK</span>
-          </ion-item>
-        </ion-card>
-        <ion-card  >
-            <ion-item lines="none">
-                <span slot="start">ID: XY563559</span>
-                <span slot="end">Date: 22-12-2018</span>
-            </ion-item>
-            <ion-item lines="none">
-                <ion-label slot="start">Amount: 500 Tk</ion-label>
-                <span slot="end">BAKSH</span>
-            </ion-item>
-          </ion-card>
-          <ion-card  >
-              <ion-item lines="none">
-                  <span slot="start">ID: XY563559</span>
-                  <span slot="end">Date: 22-12-2018</span>
-              </ion-item>
-              <ion-item lines="none">
-                  <ion-label slot="start">Amount: 500 Tk</ion-label>
-                  <span slot="end">ROCKET</span>
-              </ion-item>
-            </ion-card>
-        
-      </ion-list>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-card >
+                    <ion-item lines="none">
+                        <span slot="start">ID: XY563559</span>
+                        <span slot="end">Date: 22-12-2018</span>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label slot="start">Amount: 500 Tk</ion-label>
+                        <span slot="end">BAKSH</span>
+                    </ion-item>
+                </ion-card>
+                <ion-card >
+                    <ion-item lines="none">
+                        <span slot="start">ID: XY563559</span>
+                        <span slot="end">Date: 22-12-2018</span>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label slot="start">Amount: 500 Tk</ion-label>
+                        <span slot="end">BANK</span>
+                    </ion-item>
+                </ion-card>
+                <ion-card >
+                    <ion-item lines="none">
+                        <span slot="start">ID: XY563559</span>
+                        <span slot="end">Date: 22-12-2018</span>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label slot="start">Amount: 500 Tk</ion-label>
+                        <span slot="end">BAKSH</span>
+                    </ion-item>
+                </ion-card>
+                <ion-card >
+                    <ion-item lines="none">
+                        <span slot="start">ID: XY563559</span>
+                        <span slot="end">Date: 22-12-2018</span>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label slot="start">Amount: 500 Tk</ion-label>
+                        <span slot="end">ROCKET</span>
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 </ion-content>
