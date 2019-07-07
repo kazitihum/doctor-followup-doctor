@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Appointment History</ion-title>
+  </ion-toolbar>
+  <!-- <ion-segment (ionChange)="segmentChanged($event)" value="coming">
+    <ion-segment-button value="coming">
+      <ion-label>Coming App</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="past">
+      <ion-label>Past App</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="cancel">
+      <ion-label>Cancel App</ion-label>
+    </ion-segment-button>
+  </ion-segment> -->
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-card *ngFor="let appointment of appointments"   >
+        <div >  
+            <ion-item lines="none">
+              <span slot="start">{{appointment.disease_name}}</span>
+            </ion-item>
+            <ion-item lines="none">
+              
+              <span >Date: {{appointment.child.date}}</span>
+            </ion-item>
+            <ion-item lines="none">
+              <p>Time: {{appointment.child.start}} - {{appointment.child.end}}</p>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-label>Patient: {{appointment.patient.name}}</ion-label>
+            </ion-item>
+        </div>
+      </ion-card>
+      
+    </ion-list>
+
+    <!-- Skeleton screen -->
+<div *ngIf="!appointments">
+  <div class="ion-padding custom-skeleton">
+    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+  </div>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+    </ion-list-header>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-skeleton-text animated style="width: 27px; height: 27px" slot="start"></ion-skeleton-text>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</div>
+</ion-content>

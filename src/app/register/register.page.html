@@ -1,0 +1,87 @@
+<ion-header>
+  <!-- <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button href="/login"></ion-back-button>
+      </ion-buttons>
+    <ion-title>FollowUp | Register</ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content >
+  <form  #form="ngForm" (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Create your account!</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="first_name"   type="text" placeholder="First Name" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="last_name" type="text" placeholder="Last Name" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="phone" type="number" placeholder="phone" ngModel required></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Select You Are Surgeon Or Not</ion-label>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Yes</ion-label>
+              <ion-checkbox name="surgeon" type="checkbox" [value]="yes"  (click)="chkbx()"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+                <ion-input name="surgeon_for" type="text" placeholder="If Surgeon Then Surgeon For" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input name="specialist_at" type="text" placeholder="Specialist At" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input name="d_name" type="text" placeholder="Degree Name" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input name="d_name_s" type="text" placeholder="Degree Name Sort(M.B.B.S)" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input name="doctor_licence_id" type="text" placeholder="Doctor Licence ID" ngModel required></ion-input>
+            </ion-item>
+            <ion-item  >
+                <ion-textarea rows="3" name="about" type="text" placeholder="About You" ngModel required></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-input name="current_at" type="text" placeholder="Current At" ngModel required></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+              <ion-label>Gender</ion-label>
+              <ion-select placeholder="Select One" name="gender" ngModel >
+                <ion-select-option value="female">Female</ion-select-option>
+                <ion-select-option value="male">Male</ion-select-option>
+              </ion-select>
+            </ion-item> -->
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="confirm" type="password" placeholder="Password again" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block" >Register</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <div text-center padding>
+      Already have an account,  please <a routerLink='/login'>
+       <b> Login</b></a>
+        </div>
+    </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

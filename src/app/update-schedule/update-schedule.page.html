@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/tabs"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Update Schedule</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div text-center>
+        <h3>Right Now</h3>
+      </div>
+
+      <ion-card  >
+          <div >
+              <ion-item lines="none">
+                  <span slot="start">Date: {{schedule?.date}} </span>
+                  
+              </ion-item>
+              <ion-item lines="none">
+                  <ion-label>Time: {{schedule?.slot_start}} - {{schedule?.slot_end}}</ion-label>
+    
+              </ion-item>
+          </div>
+        </ion-card>
+
+    <form  #form="ngForm" (ngSubmit)="setSchedule(form)">
+        <ion-grid>
+          <ion-row color="primary" justify-content-center>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+                <div text-center>
+                    <h3>Update Your Schedule</h3>
+                  </div>
+                
+              <div padding>
+                  <ion-item>
+                      <ion-label>Date</ion-label>
+                      <ion-datetime name="date" type="Date"  placeholder="{{this.date}}"  ngModel min="{{todayDate | date :'yyyy-MM-dd'}}" ngModel display-format="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" ></ion-datetime>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Start Time</ion-label>
+                      <ion-datetime name="slot_start" type="Date" ngModel displayFormat="HH:mm" placeholder="{{this.start}}"></ion-datetime>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>End Time</ion-label>
+                      <ion-datetime name="slot_end" type="Date"  ngModel displayFormat="HH:mm" placeholder="{{this.end}}"></ion-datetime>
+                  </ion-item>
+              </div>
+              <div padding>
+                <ion-button  size="medium" type="submit" [disabled]="form.invalid" expand="block" >Set Schedule</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+
+</ion-content>

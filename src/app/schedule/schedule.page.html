@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/tabs"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Schedule</ion-title>
+      </ion-toolbar>
+  <!-- <ion-segment (ionChange)="segmentChanged($event)" value="python">
+      <ion-segment-button value="python">
+        <ion-label>My Schedule</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="javascript">
+        <ion-label>Schedule By Date</ion-label>
+      </ion-segment-button>
+    </ion-segment> -->
+</ion-header>
+
+<ion-content>
+
+    <form  #form="ngForm" (ngSubmit)="setSchedule(form)">
+        <ion-grid>
+          <ion-row color="primary" justify-content-center>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+              <div text-center>
+                <h3>Create Your Schedule</h3>
+              </div>
+              <div padding>
+                  <ion-item>
+                      <ion-label>Date</ion-label>
+                      <ion-datetime name="date" type="Date"  placeholder="YYYY-MM-DD"  ngModel min="{{todayDate | date :'yyyy-MM-dd'}}" ngModel display-format="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" ></ion-datetime>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Start Time</ion-label>
+                      <ion-datetime name="slot_start" type="Date" ngModel displayFormat="HH:mm" placeholder="24h clock"
+                       ></ion-datetime>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>End Time</ion-label>
+                      <ion-datetime name="slot_end" type="Date" ngModel displayFormat="HH:mm" placeholder="24h clock"></ion-datetime>
+                  </ion-item>
+              </div>
+              <div padding>
+                <ion-button  size="medium" type="submit" [disabled]="form.invalid" expand="block" >Set Schedule</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+
+      <div text-center>
+        <span>My Avilabel Schedule</span>
+      </div>
+
+      <ion-list>
+          <!--  -->
+        <ion-card *ngFor="let schedule of schedule"  (click)="presentActionSheet(schedule)" >
+          <div *ngIf="schedule.status == 0">
+              <ion-item lines="none">
+                  <span slot="start">Date: {{schedule.date}}</span>
+                  <!-- <ion-icon ios="ios-trash" md="md-trash" slot="end" color="danger" (click)="delSchedule(schedule.id)"></ion-icon> -->
+              </ion-item>
+              <ion-item lines="none">
+                  <ion-label>Time: {{schedule.slot_start}} - {{schedule.slot_end}}</ion-label>
+                  <!-- <ion-toggle color="dark" slot="end" [checked]=""></ion-toggle> -->
+              </ion-item>
+          </div>
+        </ion-card>
+        
+      </ion-list>
+
+</ion-content>

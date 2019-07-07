@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Followup Conversation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let followup of followups?.followup " (click)="followDetails(followup)">
+      <ion-card  *ngIf="followup.suggestions" style="margin-left: 20% !important;" >
+          <ion-item color="primary">
+            <span slot="start">Me</span>
+            <span slot="end">Date: {{followup.created_at | date:'yyyy-MM-dd'}}</span>
+          </ion-item>
+      </ion-card>
+      <ion-card  *ngIf="followup.symptoms" style="margin-right: 20% !important;">
+          <ion-item  color="secondary">
+            <span slot="start">Patient</span>
+            <span slot="end">Date: {{followup.created_at | date:'yyyy-MM-dd'}}</span>
+          </ion-item>
+      </ion-card>
+  </div>
+
+</ion-content>
