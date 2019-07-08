@@ -1,60 +1,80 @@
-<ion-header>
-    <ion-toolbar color="primary">
-        <ion-buttons slot="start">
-          <ion-back-button defaultHref="/tabs"></ion-back-button>
-          </ion-buttons>
-        <ion-title>Update Schedule</ion-title>
-      </ion-toolbar>
-</ion-header>
+<ion-toolbar mode="ios" class="main-header">
+	<ion-buttons slot="start">
+        <!-- <ion-button fill="clear" color="dark">
+            <i class="remixicon-menu-line ri-2x"></i>
+        </ion-button>
+        <ion-button fill="clear" color="dark">
+            <i class="remixicon-arrow-go-back-line ri-2x"></i>
+        </ion-button> -->
+        <ion-back-button defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+	<div text-center>
+		<ion-title>
+			Update Schedule
+		</ion-title>
+	</div>
+	<ion-buttons slot="end">
+		<!-- <ion-button fill="clear" color="dark">
+            <i class="remixicon-notification-line ri-2x"></i>
+        </ion-button> -->
+		<ion-button fill="clear" color="dark" (click)="logout()">
+			<i class="remixicon-login-circle-line ri-2x"></i>
+        </ion-button>
+    </ion-buttons>
+</ion-toolbar>
 
-<ion-content>
+<ion-content padding>
 
-    <div text-center>
-        <h3>Right Now</h3>
-      </div>
+    <div class="section-title">
+        <h6 class="ion-padding-start">Current Status:</h6>
+    </div>
 
-      <ion-card  >
-          <div >
-              <ion-item lines="none">
-                  <span slot="start">Date: {{schedule?.date}} </span>
-                  
-              </ion-item>
-              <ion-item lines="none">
-                  <ion-label>Time: {{schedule?.slot_start}} - {{schedule?.slot_end}}</ion-label>
-    
-              </ion-item>
-          </div>
-        </ion-card>
-
-    <form  #form="ngForm" (ngSubmit)="setSchedule(form)">
-        <ion-grid>
-          <ion-row color="primary" justify-content-center>
-            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-
-                <div text-center>
-                    <h3>Update Your Schedule</h3>
-                  </div>
-                
-              <div padding>
-                  <ion-item>
-                      <ion-label>Date</ion-label>
-                      <ion-datetime name="date" type="Date"  placeholder="{{this.date}}"  ngModel min="{{todayDate | date :'yyyy-MM-dd'}}" ngModel display-format="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" ></ion-datetime>
-                  </ion-item>
-                  <ion-item>
-                      <ion-label>Start Time</ion-label>
-                      <ion-datetime name="slot_start" type="Date" ngModel displayFormat="HH:mm" placeholder="{{this.start}}"></ion-datetime>
-                  </ion-item>
-                  <ion-item>
-                      <ion-label>End Time</ion-label>
-                      <ion-datetime name="slot_end" type="Date"  ngModel displayFormat="HH:mm" placeholder="{{this.end}}"></ion-datetime>
-                  </ion-item>
-              </div>
-              <div padding>
-                <ion-button  size="medium" type="submit" [disabled]="form.invalid" expand="block" >Set Schedule</ion-button>
-              </div>
+    <ion-card class="bg-transparent shadow-0 pl-2">
+        <ion-row>
+            <ion-col size="5" size-md>
+                <ion-card-content class="ion-no-padding">
+                    <i class="remixicon-calendar-event-line mr-1"></i>
+                    {{schedule?.date}}
+                </ion-card-content>
             </ion-col>
-          </ion-row>
+            <ion-col>
+                <ion-card-content class="ion-no-padding">
+                    <i class="remixicon-time-line mr-1"></i>
+                    {{schedule?.slot_start}} - {{schedule?.slot_end}}
+                </ion-card-content>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+
+    <form #form="ngForm" (ngSubmit)="setSchedule(form)">
+        <ion-grid>
+            <ion-row color="primary" justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+                    <div class="section-title">
+                        <h6 class="ion-padding-start">Update Status:</h6>
+                    </div>
+
+                    <ion-card>
+                        <ion-item>
+                            <ion-label>Date</ion-label>
+                            <ion-datetime name="date" type="Date"  placeholder="{{this.date}}"  ngModel min="{{todayDate | date :'yyyy-MM-dd'}}" ngModel display-format="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" ></ion-datetime>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Start Time</ion-label>
+                            <ion-datetime name="slot_start" type="Date" ngModel displayFormat="HH:mm" placeholder="{{this.start}}"></ion-datetime>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>End Time</ion-label>
+                            <ion-datetime name="slot_end" type="Date"  ngModel displayFormat="HH:mm" placeholder="{{this.end}}"></ion-datetime>
+                        </ion-item>
+                    </ion-card>
+
+                    <ion-button class="ion-margin-vertical mx-0" size="large" type="submit" [disabled]="form.invalid" expand="block" >Update Schedule</ion-button>
+
+                </ion-col>
+            </ion-row>
         </ion-grid>
-      </form>
+    </form>
 
 </ion-content>

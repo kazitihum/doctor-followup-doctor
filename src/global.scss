@@ -25,6 +25,10 @@
     --background: white;
     background: white;
 }
+.bg-transparent {
+    --background: transparent !important;
+    background: transparent !important;
+}
 
 // Layout Utility
 .w-100 {
