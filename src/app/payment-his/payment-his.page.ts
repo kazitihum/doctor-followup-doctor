@@ -12,6 +12,7 @@ export class PaymentHisPage implements OnInit {
   payment:any;
   appoint:any;
   doc_id:any;
+  payTab:any = 'pending';
 
   constructor(private storage: Storage,private apiService: ApiservicesService) { }
 
@@ -32,6 +33,10 @@ export class PaymentHisPage implements OnInit {
     //   }
     // );
 
+  }
+  segmentChanged(ev: any) {
+    this.payTab = ev.detail.value;
+    // console.log('Segment changed', ev.detail.value);
   }
 
 }

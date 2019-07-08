@@ -22,7 +22,16 @@
 
 <ion-content padding>
 
-    <ion-grid>
+    <ion-segment [(ngModel)]="payTab" (ionChange)="segmentChanged($event)" value="pending">
+        <ion-segment-button value="pending">
+            <ion-label>Pending</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="paid">
+            <ion-label>Paid</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <ion-grid *ngIf="payTab === 'pending'">
         <ion-row>
             <ion-col>
                 <ion-card >
@@ -68,5 +77,9 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+
+    <div *ngIf="payTab === 'paid'">
+        <h1>Paid</h1>
+    </div>
 
 </ion-content>
